@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './../containers/App'
+
 
 class Title extends React.Component {
     render() {
