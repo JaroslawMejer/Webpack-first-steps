@@ -6,9 +6,9 @@ class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            data: []
+            data: [],
+            numberOfTasks: 0
         };
-        this.countingLengthOfData = this.countingLengthOfData.bind(this);
     }
     addTodo(val){
         const todo = {
@@ -16,19 +16,22 @@ class App extends React.Component {
             id: uuid.v4(),
         };
         const data = [...this.state.data, todo];
-        this.setState({data});
+        this.setState({
+            data: data,
+            numberOfTasks: this.state.numberOfTasks + 1
+        });
     }
     removeTodo(id) {
         const remainder = this.state.data.filter(todo => todo.id !== id);
-        this.setState({data: remainder});
-    }
-    countingLengthOfData(){
-        return this.state.data.length
+        this.setState({
+        data: remainder,
+        numberOfTasks: this.state.numberOfTasks - 1
+        });
     }
     render() {
         return (
             <div className={style.TodoApp}>
-                <Title />
+                <Title counter={this.state.numberOfTasks} />
             </div>
 
         );
