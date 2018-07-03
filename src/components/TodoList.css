@@ -1,0 +1,20 @@
+.TodoList{
+	background-color: rgba(86, 86, 86, 0.4);
+	padding: 20px;
+	border-radius: 15px;
+}
+
+.Todo{
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 10px;
+	margin: 10px;
+	list-style-type: none;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	border-radius: 15px;
+}
+
+.Todo:hover{
+	cursor: pointer;
+}

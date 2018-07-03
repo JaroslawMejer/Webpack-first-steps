@@ -4,8 +4,8 @@ import Title from './../components/Title';
 import TodoList from './../components/TodoList'
 
 class App extends React.Component {
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.state = {
             data: [{
                 id: 1,
@@ -18,6 +18,7 @@ class App extends React.Component {
                 text: 'feed my cat'
             }]
         };
+        this.removeTodo = this.removeTodo.bind(this)
     }
     addTodo(val){
         const todo = {
@@ -29,6 +30,7 @@ class App extends React.Component {
     }
     removeTodo(id) {
         const remainder = this.state.data.filter(todo => todo.id !== id);
+        console.log('trying to remove')
         this.setState({
             data: remainder
         });
