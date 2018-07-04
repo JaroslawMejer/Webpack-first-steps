@@ -1,7 +1,11 @@
 import React from 'react';
+import uuid from 'uuid'
 import style from './App.css';
 import Title from './../components/Title';
 import TodoList from './../components/TodoList'
+import TodoForm from './../components/TodoForm'
+import { hot } from 'react-hot-loader';
+
 
 class App extends React.Component {
     constructor(){
@@ -19,6 +23,7 @@ class App extends React.Component {
             }]
         };
         this.removeTodo = this.removeTodo.bind(this)
+        this.addTodo = this.addTodo.bind(this)
     }
     addTodo(val){
         const todo = {
@@ -39,6 +44,7 @@ class App extends React.Component {
         return (
             <div className={style.TodoApp}>
                 <Title counter={this.state.data.length} />
+                <TodoForm tasks={this.state.data} add={this.addTodo} />
                 <TodoList tasks={this.state.data} remove={this.removeTodo} />
             </div>
 
@@ -46,4 +52,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default hot(module)(App);
